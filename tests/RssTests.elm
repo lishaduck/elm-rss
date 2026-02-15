@@ -27,6 +27,7 @@ suite =
                           , content = Nothing
                           , contentEncoded = Nothing
                           , enclosure = Nothing
+                          , markdownContent = Nothing
                           }
                         ]
                     , siteUrl = "https://elm-pages.com"
@@ -73,6 +74,7 @@ suite =
                                     , mimeType = "image/jpeg"
                                     , bytes = Nothing
                                     }
+                          , markdownContent = Just "# Hello!\\n\\nSome feed readers will render this, somehow <tb>"
                           }
                         ]
                     , siteUrl = "https://elm-pages.com"
@@ -91,6 +93,7 @@ suite =
 <link>https://elm-pages.com/blog/generate-files</link>
 <guid>https://elm-pages.com/blog/generate-files</guid>
 <pubDate>Fri, 05 Jun 2020 04:09:26 +0000</pubDate>
+<source:markdown># Hello!\\n\\nSome feed readers will render this, somehow &lt;tb&gt;</source:markdown>
 <content:encoded><![CDATA[<h1>Hello!</h1><p>Some feed readers will render this as HTML</p>]]></content:encoded>
 <enclosure length="0" type="image/jpeg" url="https://example.com/image.jpg"></enclosure>
 </item>
@@ -114,6 +117,7 @@ suite =
                           , content = Nothing
                           , contentEncoded = Just "<div>Simple HTML content</div>"
                           , enclosure = Nothing
+                          , markdownContent = Nothing
                           }
                         ]
                     , siteUrl = "https://example.com"

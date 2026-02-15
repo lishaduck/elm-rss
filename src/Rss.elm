@@ -67,6 +67,7 @@ type alias Item =
             , mimeType : String
             , bytes : Maybe Int
             }
+    , markdownContent : Maybe String
 
     {-
        TODO consider adding these
@@ -146,6 +147,7 @@ itemXml siteUrl item =
                  ]
                     ++ List.map encodeCategory item.categories
                     ++ ([ item.content |> Maybe.map (\content -> keyValue "content" content)
+                        , item.markdownContent |> Maybe.map (\content -> keyValue "source:markdown" content)
                         , item.contentEncoded |> Maybe.map (\content -> object [ ( "content:encoded", Dict.empty, cdata content ) ])
                         , item.enclosure |> Maybe.map encodeEnclosure
 
