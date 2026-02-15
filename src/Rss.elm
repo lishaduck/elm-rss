@@ -117,7 +117,7 @@ generate feed =
                       , keyValue "description" feed.description
                       , keyValue "link" feed.url
 
-                      --<atom:link href="http://dallas.example.com/rss.xml" rel="self" type="application/rss+xml" />
+                      -- <atom:link href="http://dallas.example.com/rss.xml" rel="self" type="application/rss+xml" />
                       , keyValue "lastBuildDate" <| Imf.DateTime.fromPosix Time.utc feed.lastBuildTime
                       ]
                     , [ feed.generator |> Maybe.map (keyValue "generator") ] |> List.filterMap identity
@@ -149,7 +149,7 @@ itemXml siteUrl item =
                         , item.contentEncoded |> Maybe.map (\content -> object [ ( "content:encoded", Dict.empty, cdata content ) ])
                         , item.enclosure |> Maybe.map encodeEnclosure
 
-                        --<enclosure url="https://example.com/image.jpg" length="0" type="image/jpeg"/>
+                        -- <enclosure url="https://example.com/image.jpg" length="0" type="image/jpeg"/>
                         ]
                             |> List.filterMap identity
                        )
